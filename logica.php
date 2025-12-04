@@ -1,0 +1,33 @@
+<?php
+
+function autenticado(){
+    if(isset($_SESSION["email"])){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function adm(){
+    if(isset($_SESSION["adm"]) && $_SESSION["adm"] == 1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function nome_usuario(){
+    return $_SESSION["nome"];
+}
+
+function email_usuario(){
+    return $_SESSION["email"];
+}
+
+function redireciona($pagina = null)
+{
+    if(empty($pagina)){
+        $pagina = "index.php";
+    }
+    header("Location: ". $pagina);
+}
